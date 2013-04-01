@@ -1,0 +1,102 @@
+#custom_info_window_red{
+  width: 300px;
+}
+#custom_info_window_red_contents{
+  background-color: #FFF;
+}
+#custom_info_window_red_tl{
+  width: 16px;
+  height: 16px;
+  background: url('images/red_tl.png') top left no-repeat transparent;
+}
+#custom_info_window_red_t{
+  background: url('images/red_t.png') top left repeat-x transparent;
+}
+#custom_info_window_red_tr{
+  width: 16px;
+  height: 16px;
+  background: url('images/red_tr.png') top left no-repeat transparent;
+}
+#custom_info_window_red_l{
+  width: 3px;
+  background: url('images/red_l.png') top left repeat-y transparent;
+}
+#custom_info_window_red_r{
+  width: 3px;
+  background: url('images/red_r.png') top right repeat-y transparent;
+}
+#custom_info_window_red_bl{
+  width: 16px;
+  height: 16px;
+  background: url('images/red_bl.png') top left no-repeat transparent;
+}
+#custom_info_window_red_b{
+  background: url('images/red_b.png') top left repeat-x transparent;
+}
+#custom_info_window_red_br{
+  width: 16px;
+  height: 16px;
+  background: url('images/red_br.png') top left no-repeat transparent;
+}
+#custom_info_window_red_close{
+  width: 21px;
+  height: 21px;
+  background: url('images/red_close.png') top left no-repeat transparent;
+  cursor: pointer;
+}
+* html #custom_info_window_red_close{
+  background-image:none;
+  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/ie_red_close.png', sizingMethod='crop');
+}
+#custom_info_window_red_max{
+  width: 21px;
+  height: 21px;
+  background: url('images/red_max.png') top left no-repeat transparent;
+  cursor: pointer;
+}
+#custom_info_window_red_min{
+  width: 21px;
+  height: 21px;
+  background: url('images/red_min.png') top left no-repeat transparent;
+  cursor: pointer;
+}
+#custom_info_window_red_beak{
+  width: 28px;
+  height: 18px;
+}
+#custom_info_window_red_contents .section1{
+  margin: 0;
+  padding: 0;
+}
+#custom_info_window_red_contents .section2{
+  margin: 0;
+  padding: 0;
+  background-color: #FFDFDF;
+  border-bottom: dotted 1px #900;
+  border-top: dotted 1px #900;
+}
+#custom_info_window_red_contents p{
+  margin: 1px 0;
+  padding: 5px;
+}
+#custom_info_window_red_contents .title{
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  background-color: #900;
+}
+/*地图*/
+.mapText{color:#fff;WHITE-SPACE: nowrap;margin:0 auto;text-align:center}
+.maptab{ height:29px; overflow:hidden;}
+.maptab em{padding:3px 8px 0 10px; color:#FFF; font-size:12px; float:left; background:url(images/mapbg-2.gif) no-repeat right -50px;display:block; font-style:normal; }
+.maptab span{background:url(images/mapbg-2.gif) no-repeat; float:left; height:29px; }
+
+.box_xx{ width:300px;}
+.box_xx  h2{ font-size:12px; color:#C00; line-height:18px;margin-left:4px;}
+.box_xx .row_pic { height:30px; padding:5px 0; border-top:#ddd 1px solid;border-bottom:#ddd 1px solid; zoom:1;}
+.box_xx .row_pic .pic{ float:left; margin-left:4px}
+.box_xx .row_pic .pic img{ padding:2px; border:#ddd 1px solid;}
+.box_xx .row_pic .txt{ padding-left:20px; float:left; text-align: left;}
+.box_xx .row_pic .txt ul{ line-height:18px}
+.box_xx .row_pic .txt ul li {DISPLAY: block; OVERFLOW: hidden; WIDTH: 190px; WHITE-SPACE: nowrap; TEXT-OVERFLOW: clip; o-text-overflow: clip}
+.box_xx p{line-height:18px}

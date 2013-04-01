@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=7"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Map</title>
+	<meta content="keywords" name="keywords"/>
+	<meta content="description" name="description"/>
+	<link rel="stylesheet" href="./css/reset.css"/>
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link href="./css/redInfoWindow.css" rel="Stylesheet"/>
+</head>
+<body style="background:none;">
+<div class="h_450">
+<div class="chi_r_content_sals_map_title">
+	地图
+</div>
+<div id="viewmap_small" style=" position: relative; width:570px; height: 420px;"></div>
+<script src="http://ditu.google.cn/maps?file=api&v=2&key=ABQIAAAATH_gcqCDC6IsWtaOtIOtexT_22Kp4KMSl9FvtWJF6_yLLu9qLhQOnHGfIblQ1qGM4vEbeZ4wASzikg" type="text/javascript" charset="utf-8"></script>
+<script src="./js/markermanager.js" type="text/javascript"></script>
+<script src="./js/labeledmarker.js" type="text/javascript"></script>
+<script src="./js/extinfowindow.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var mymap = 'viewmap_small';
+var default_x = "37.0";
+var default_y = "104.2";
+var zoomLevel = 14;
+var map = null;
+if ( GBrowserIsCompatible() ) {
+	map = new GMap2(document.getElementById(mymap));
+	var customUI = map.getDefaultUI();
+	customUI.maptypes.hybrid = false;
+	map.setUI(customUI);
+	map.addControl(new GOverviewMapControl());
+	map.disableScrollWheelZoom();
+	map.disableDoubleClickZoom();
+
+	map.setCenter(new GLatLng(default_x, default_y), zoomLevel);
+
+	setmarkersort();
+}
+
+function getsort(obj) {
+	clearOverlays();
+	setmarkersort(obj.value);
+}
+
+function clearOverlays() {
+	map.clearOverlays();
+}
+
+function setmarkersort() {
+	var centerMAXX = -90;
+	var centerMINX = 90;
+	var centerMAXY = -180;
+	var centerMINY = 180;
+
+	// 颜庙
+	if ( 35.601939 > centerMAXX ) centerMAXX = 35.601939;
+	if ( 35.601939 < centerMINX ) centerMINX = 35.601939;
+	if ( 116.995039 > centerMAXY ) centerMAXY = 116.995039;
+	if ( 116.995039 < centerMINY ) centerMINY = 116.995039;
+
+	if ( 35.596286 > centerMAXX ) centerMAXX = 35.596286;
+	if ( 35.596286 < centerMINX ) centerMINX = 35.596286;
+	if ( 116.991477 > centerMAXY ) centerMAXY = 116.991477;
+	if ( 116.991477 < centerMINY ) centerMINY = 116.991477;
+
+	if ( 35.604835 > centerMAXX ) centerMAXX = 35.604835;
+	if ( 35.604835 < centerMINX ) centerMINX = 35.604835;
+	if ( 117.002013 > centerMAXY ) centerMAXY = 117.002013;
+	if ( 117.002013 < centerMINY ) centerMINY = 117.002013;
+
+	if ( 35.613628 > centerMAXX ) centerMAXX = 35.613628;
+	if ( 35.613628 < centerMINX ) centerMINX = 35.613628;
+	if ( 116.994309 > centerMAXY ) centerMAXY = 116.994309;
+	if ( 116.994309 < centerMINY ) centerMINY = 116.994309;
+
+	if ( 35.592866 > centerMAXX ) centerMAXX = 35.592866;
+	if ( 35.592866 < centerMINX ) centerMINX = 35.592866;
+	if ( 116.990061 > centerMAXY ) centerMAXY = 116.990061;
+	if ( 116.990061 < centerMINY ) centerMINY = 116.990061;
+
+
+	default_x = (centerMAXX + centerMINX) / 2;
+	default_y = (centerMAXY + centerMINY) / 2;
+
+	map.setCenter(new GLatLng(default_x, default_y), zoomLevel);
+
+	setmarker('35.600229', '116.994781', '颜庙', '', '', '', '');
+
+	setmarker('35.596286', '116.991477', '孔府', '', '', '', '');
+
+	setmarker('35.604835', '117.002013', '周公庙', '', '', '', '');
+
+	setmarker('35.613628', '116.994309', '孔林', '', '', '', '');
+
+	setmarker('35.592866', '116.990061', '孔庙', '', '', '', '');
+}
+
+function setmarker(mapx, mapy, title, telephone, fax, email, website) {
+	var center = new GLatLng(mapx, mapy);
+	var wid = 6 * len(title) + 16;
+	var icon = new GIcon();
+
+	icon.image = './imgs/markergreen.png';
+	icon.iconSize = new GSize(wid, 34);
+	icon.iconAnchor = new GPoint(14, 22);
+	icon.infoWindowAnchor = new GPoint(32, 7);
+
+	opts = {
+		"icon"        : icon,
+		"clickable"   : true,
+		"title"       : title,
+		"labelText"   : title,
+		"labelOffset" : new GSize(-6, -16),
+		"labelClass"  : "mapText"
+	};
+	var marker = new LabeledMarker(center, opts);
+	map.addOverlay(marker);
+
+	GEvent.addListener(marker, "click", function () {
+		var content = "<div class='box_xx'><h2>" + title + "</h2><div class='row_pic'><span class='txt'>";
+		content += "电话：" + telephone + "<br />";
+		//content += "传真：" + fax + "<br />";
+		//content += "邮箱：" + email + "<br />";
+		if ( website != '' ) {
+			content += "网址：<a href='" + website + "' target='_blank'>" + website + "</a>";
+		}
+		content += "</span></div><p></p></div>";
+		marker.openExtInfoWindow(map, "custom_info_window_red", content, {paddingY : 36});
+	});
+
+	GEvent.addListener(marker, "mouseover", function () {
+		marker.setImage('./imgs/markeryellow.png');
+		var s = marker.div_.previousSibling.style.zIndex;
+		marker.div_.previousSibling.style.zIndex = parseInt(s) + 100000000;
+		marker.div_.style.zIndex = parseInt(s) + 100000000;
+	});
+
+	GEvent.addListener(marker, "mouseout", function () {
+		marker.setImage('./imgs/markergreen.png');
+		var s = marker.div_.previousSibling.style.zIndex;
+		marker.div_.previousSibling.style.zIndex = parseInt(s) - 100000000;
+		marker.div_.style.zIndex = parseInt(s) - 100000000;
+	});
+}
+
+function len(s) {
+	var l = 0;
+	var a = s.split("");
+	for (var i = 0; i < a.length; i++) {
+		if ( a[i].charCodeAt(0) < 299 ) {
+			l++;
+		}
+		else {
+			l += 2;
+		}
+	}
+	return l;
+}
+</script>
+</div>
+</body>
+</html>

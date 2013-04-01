@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=7"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Map</title>
+	<meta content="keywords" name="keywords"/>
+	<meta content="description" name="description"/>
+	<link rel="stylesheet" href="./css/reset.css"/>
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link href="./css/redInfoWindow.css" rel="Stylesheet"/>
+</head>
+<body style="background:none;">
+<div class="h_450">
+<div class="chi_r_content_sals_map_title">
+	<select onchange="getsort(this)">
+		<option value="1">总公司</option>
+		<option value="2">全资企业</option>
+		<option value="3">控股企业</option>
+		<option value="4">参股企业</option>
+	</select>
+</div>
+<div id="viewmap_small" style=" position: relative; width:570px; height: 420px;"></div>
+<script src="http://ditu.google.cn/maps?file=api&v=2&key=ABQIAAAATH_gcqCDC6IsWtaOtIOtexT_22Kp4KMSl9FvtWJF6_yLLu9qLhQOnHGfIblQ1qGM4vEbeZ4wASzikg" type="text/javascript" charset="utf-8"></script>
+<script src="./js/markermanager.js" type="text/javascript"></script>
+<script src="./js/labeledmarker.js" type="text/javascript"></script>
+<script src="./js/extinfowindow.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var mymap = 'viewmap_small';
+var default_x = "37.0";
+var default_y = "104.2";
+var zoomLevel = 10;
+var map = null;
+if ( GBrowserIsCompatible() ) {
+	map = new GMap2(document.getElementById(mymap));
+	var customUI = map.getDefaultUI();
+	customUI.maptypes.hybrid = false;
+	map.setUI(customUI);
+	map.addControl(new GOverviewMapControl());
+	map.disableScrollWheelZoom();
+	map.disableDoubleClickZoom();
+
+	map.setCenter(new GLatLng(default_x, default_y), zoomLevel);
+
+	setmarkersort("1");
+}
+
+function getsort(obj) {
+	clearOverlays();
+	setmarkersort(obj.value);
+}
+
+function clearOverlays() {
+	map.clearOverlays();
+}
+
+function setmarkersort(id) {
+	var centerMAXX = -90;
+	var centerMINX = 90;
+	var centerMAXY = -180;
+	var centerMINY = 180;
+
+	switch (id) {
+		case "1":
+			if ( 36.08351146584746 > centerMAXX ) centerMAXX = 36.08351146584746;
+			if ( 36.08351146584746 < centerMINX ) centerMINX = 36.08351146584746;
+			if ( 120.3936767578125 > centerMAXY ) centerMAXY = 120.3936767578125;
+			if ( 120.3936767578125 < centerMINY ) centerMINY = 120.3936767578125;
+
+			default_x = (centerMAXX + centerMINX) / 2;
+			default_y = (centerMAXY + centerMINY) / 2;
+
+			map.setCenter(new GLatLng(default_x, default_y), zoomLevel);
+
+			setmarker('36.08351146584746', '120.3936767578125', '青岛市机械工业总公司', '0532-85762037', '0532-85762037', 'qme@qme.cn', 'http://www.qme.cn/');
+			break;
+		case "2":
+			if ( 35.8876593461709 > centerMAXX ) centerMAXX = 35.8876593461709;
+			if ( 35.8876593461709 < centerMINX ) centerMINX = 35.8876593461709;
+			if ( 120.03387451171875 > centerMAXY ) centerMAXY = 120.03387451171875;
+			if ( 120.03387451171875 < centerMINY ) centerMINY = 120.03387451171875;
+			if ( 36.08385828947478 > centerMAXX ) centerMAXX = 36.08385828947478;
+			if ( 36.08385828947478 < centerMINX ) centerMINX = 36.08385828947478;
+			if ( 120.36895751953125 > centerMAXY ) centerMAXY = 120.36895751953125;
+			if ( 120.36895751953125 < centerMINY ) centerMINY = 120.36895751953125;
+			if ( 36.07421602270277 > centerMAXX ) centerMAXX = 36.07421602270277;
+			if ( 36.07421602270277 < centerMINX ) centerMINX = 36.07421602270277;
+			if ( 120.34870147705078 > centerMAXY ) centerMAXY = 120.34870147705078;
+			if ( 120.34870147705078 < centerMINY ) centerMINY = 120.34870147705078;
+			if ( 36.349973975123945 > centerMAXX ) centerMAXX = 36.349973975123945;
+			if ( 36.349973975123945 < centerMINX ) centerMINX = 36.349973975123945;
+			if ( 120.11421203613281 > centerMAXY ) centerMAXY = 120.11421203613281;
+			if ( 120.11421203613281 < centerMINY ) centerMINY = 120.11421203613281;
+			if ( 36.12345548205631 > centerMAXX ) centerMAXX = 36.12345548205631;
+			if ( 36.12345548205631 < centerMINX ) centerMINX = 36.12345548205631;
+			if ( 120.36191940307617 > centerMAXY ) centerMAXY = 120.36191940307617;
+			if ( 120.36191940307617 < centerMINY ) centerMINY = 120.36191940307617;
+			if ( 36.21062368007893 > centerMAXX ) centerMAXX = 36.21062368007893;
+			if ( 36.21062368007893 < centerMINX ) centerMINX = 36.21062368007893;
+			if ( 120.3962516784668 > centerMAXY ) centerMAXY = 120.3962516784668;
+			if ( 120.3962516784668 < centerMINY ) centerMINY = 120.3962516784668;
+
+			default_x = (centerMAXX + centerMINX) / 2;
+			default_y = (centerMAXY + centerMINY) / 2;
+
+			map.setCenter(new GLatLng(default_x, default_y), zoomLevel);
+
+			setmarker('35.8876593461709', '120.03387451171875', '青岛海纳重工集团', '86083608  83830417', '0532-88159538', 'qdhaina2011@126.com', 'http://www.qingdaozhuji.com/');
+			setmarker('36.08385828947478', '120.36895751953125', '青岛市机械职工中等专业学校', '0532-68662658', '', '', '');
+			setmarker('36.07421602270277', '120.34870147705078', '青岛市机械工业总公司幼儿园', '18653277631', '', 'xingluxia@163.com', '');
+			setmarker('36.349973975123945', '120.11421203613281', '青岛市机械技术学校', '0532-83725529', '0532-83725529', 'Jixie_jixiao@sina.com', 'http://www.qdjxjs.cn/');
+			setmarker('36.12345548205631', '120.36191940307617', '青岛青微电器有限责任公司', '84858337', '0532-84854614', 'q.wdq@163.com', 'http://www.qdqwdq.com/');
+			setmarker('36.21062368007893', '120.3962516784668', '青岛整流器制造有限公司', '0532-84913108', '', 'qrwcp@163169.net', '');
+			break;
+		case "3":
+			if ( 36.10983102980395 > centerMAXX ) centerMAXX = 36.10983102980395;
+			if ( 36.10983102980395 < centerMINX ) centerMINX = 36.10983102980395;
+			if ( 120.35584688186646 > centerMAXY ) centerMAXY = 120.35584688186646;
+			if ( 120.35584688186646 < centerMINY ) centerMINY = 120.35584688186646;
+			if ( 36.21131620260199 > centerMAXX ) centerMAXX = 36.21131620260199;
+			if ( 36.21131620260199 < centerMINX ) centerMINX = 36.21131620260199;
+			if ( 120.39436340332031 > centerMAXY ) centerMAXY = 120.39436340332031;
+			if ( 120.39436340332031 < centerMINY ) centerMINY = 120.39436340332031;
+			if ( 36.10695329862147 > centerMAXX ) centerMAXX = 36.10695329862147;
+			if ( 36.10695329862147 < centerMINX ) centerMINX = 36.10695329862147;
+			if ( 120.35797119140625 > centerMAXY ) centerMAXY = 120.35797119140625;
+			if ( 120.35797119140625 < centerMINY ) centerMINY = 120.35797119140625;
+
+			default_x = (centerMAXX + centerMINX) / 2;
+			default_y = (centerMAXY + centerMINY) / 2;
+
+			map.setCenter(new GLatLng(default_x, default_y), zoomLevel);
+
+			setmarker('36.10983102980395', '120.35584688186646', '青岛开世密封工业有限公司', '(86)0532-83753271', '0532-83713756', 'tks@tks.cn', 'http://www.tks.cn/');
+			setmarker('36.21131620260199', '120.39436340332031', '青岛青整电子设备有限公司', '0532-89087589', '', '', '');
+			setmarker('36.10695329862147', '120.35797119140625', '青岛飞燕精密钢球制造有限公司', '0532-86199155', '', '', 'http://www.qdfeiyan.com/');
+			break;
+		case "4":
+			if ( 36.08166460426659 > centerMAXX ) centerMAXX = 36.08166460426659;
+			if ( 36.08166460426659 < centerMINX ) centerMINX = 36.08166460426659;
+			if ( 120.40159463882446 > centerMAXY ) centerMAXY = 120.40159463882446;
+			if ( 120.40159463882446 < centerMINY ) centerMINY = 120.40159463882446;
+			if ( 35.97147687323657 > centerMAXX ) centerMAXX = 35.97147687323657;
+			if ( 35.97147687323657 < centerMINX ) centerMINX = 35.97147687323657;
+			if ( 120.17068862915039 > centerMAXY ) centerMAXY = 120.17068862915039;
+			if ( 120.17068862915039 < centerMINY ) centerMINY = 120.17068862915039;
+			if ( 36.1733569352216 > centerMAXX ) centerMAXX = 36.1733569352216;
+			if ( 36.1733569352216 < centerMINX ) centerMINX = 36.1733569352216;
+			if ( 119.99542236328125 > centerMAXY ) centerMAXY = 119.99542236328125;
+			if ( 119.99542236328125 < centerMINY ) centerMINY = 119.99542236328125;
+			if ( 36.01286631669076 > centerMAXX ) centerMAXX = 36.01286631669076;
+			if ( 36.01286631669076 < centerMINX ) centerMINX = 36.01286631669076;
+			if ( 120.10854721069336 > centerMAXY ) centerMAXY = 120.10854721069336;
+			if ( 120.10854721069336 < centerMINY ) centerMINY = 120.10854721069336;
+			if ( 36.186104434556036 > centerMAXX ) centerMAXX = 36.186104434556036;
+			if ( 36.186104434556036 < centerMINX ) centerMINX = 36.186104434556036;
+			if ( 120.3988265991211 > centerMAXY ) centerMAXY = 120.3988265991211;
+			if ( 120.3988265991211 < centerMINY ) centerMINY = 120.3988265991211;
+			if ( 36.21034666935369 > centerMAXX ) centerMAXX = 36.21034666935369;
+			if ( 36.21034666935369 < centerMINX ) centerMINX = 36.21034666935369;
+			if ( 120.399169921875 > centerMAXY ) centerMAXY = 120.399169921875;
+			if ( 120.399169921875 < centerMINY ) centerMINY = 120.399169921875;
+			if ( 36.08045935195451 > centerMAXX ) centerMAXX = 36.08045935195451;
+			if ( 36.08045935195451 < centerMINX ) centerMINX = 36.08045935195451;
+			if ( 120.37796974182129 > centerMAXY ) centerMAXY = 120.37796974182129;
+			if ( 120.37796974182129 < centerMINY ) centerMINY = 120.37796974182129;
+			if ( 36.078100819161946 > centerMAXX ) centerMAXX = 36.078100819161946;
+			if ( 36.078100819161946 < centerMINX ) centerMINX = 36.078100819161946;
+			if ( 120.3233814239502 > centerMAXY ) centerMAXY = 120.3233814239502;
+			if ( 120.3233814239502 < centerMINY ) centerMINY = 120.3233814239502;
+			if ( 36.14965770367516 > centerMAXX ) centerMAXX = 36.14965770367516;
+			if ( 36.14965770367516 < centerMINX ) centerMINX = 36.14965770367516;
+			if ( 120.3823471069336 > centerMAXY ) centerMAXY = 120.3823471069336;
+			if ( 120.3823471069336 < centerMINY ) centerMINY = 120.3823471069336;
+			if ( 36.016615293892535 > centerMAXX ) centerMAXX = 36.016615293892535;
+			if ( 36.016615293892535 < centerMINX ) centerMINX = 36.016615293892535;
+			if ( 120.1300048828125 > centerMAXY ) centerMAXY = 120.1300048828125;
+			if ( 120.1300048828125 < centerMINY ) centerMINY = 120.1300048828125;
+
+			default_x = (centerMAXX + centerMINX) / 2;
+			default_y = (centerMAXY + centerMINY) / 2;
+
+			map.setCenter(new GLatLng(default_x, default_y), zoomLevel);
+
+			setmarker('36.08166460426659', '120.40159463882446', '青岛半导体研究所', '0532-85718548', '0532-85714320 85718548', 'qbs@qdsri.com  qsi@qdsri.com', 'http://www.qdsri.com/');
+			setmarker('35.97147687323657', '120.17068862915039', '青岛百利达钢丸有限公司', '+86-532-86895502 86891841', '+86-532-86894061 86895502', 'qbrator@bdchina.com', '');
+			setmarker('36.1733569352216', '119.99542236328125', '青岛新东机械有限公司', '0532-81827811', '0532-81827900', 'qdsintong@public.qd.sd.cn', '');
+			setmarker('36.01286631669076', '120.10854721069336', '青岛莱钢钢结构有限公司', '0532-86837788', '', '', '');
+			setmarker('36.186104434556036', '120.3988265991211', '青岛泰德汽车轴承有限责任公司', '0532-84661787 84661798', '0532-84661787、 84661798', 'dushiqiang@yahoo.com.cn', '');
+			setmarker('36.21034666935369', '120.399169921875', '青岛青整科技有限公司', '0532-66885987', '', '', '');
+			setmarker('36.08045935195451', '120.37796974182129', '青岛汽车散热器有限公司', '0532-83731545 85016718', '0532-85016795', 'sales@qingdao-radiator.com', '');
+			setmarker('36.078100819161946', '120.3233814239502', '青岛汽车零部件有限公司', '', '', '', '');
+			setmarker('36.14965770367516', '120.3823471069336', '青岛捷能汽轮机股份有限公司', '0532-84851291', '0532-86125820', 'gsb@jnpower.com', '');
+			setmarker('36.016615293892535', '120.1300048828125', '扎克（青岛）船用锅炉公司', '', '', '', '');
+			break;
+		default:
+	}
+}
+
+function setmarker(mapx, mapy, title, telephone, fax, email, website) {
+	var center = new GLatLng(mapx, mapy);
+	var wid = 6 * len(title) + 16;
+	var icon = new GIcon();
+
+	icon.image = './imgs/markergreen.png';
+	icon.iconSize = new GSize(wid, 34);
+	icon.iconAnchor = new GPoint(14, 22);
+	icon.infoWindowAnchor = new GPoint(32, 7);
+
+	opts = {
+		"icon"        : icon,
+		"clickable"   : true,
+		"title"       : title,
+		"labelText"   : title,
+		"labelOffset" : new GSize(-6, -16),
+		"labelClass"  : "mapText"
+	};
+	var marker = new LabeledMarker(center, opts);
+	map.addOverlay(marker);
+
+	GEvent.addListener(marker, "click", function () {
+		var content = "<div class='box_xx'><h2>" + title + "</h2><div class='row_pic'><span class='txt'>";
+		content += "电话：" + telephone + "<br />";
+		//content += "传真：" + fax + "<br />";
+		//content += "邮箱：" + email + "<br />";
+		if ( website != '' ) {
+			content += "网址：<a href='" + website + "' target='_blank'>" + website + "</a>";
+		}
+		content += "</span></div><p></p></div>";
+		marker.openExtInfoWindow(map, "custom_info_window_red", content, {paddingY : 36});
+	});
+
+	GEvent.addListener(marker, "mouseover", function () {
+		marker.setImage('./imgs/markeryellow.png');
+		var s = marker.div_.previousSibling.style.zIndex;
+		marker.div_.previousSibling.style.zIndex = parseInt(s) + 100000000;
+		marker.div_.style.zIndex = parseInt(s) + 100000000;
+	});
+
+	GEvent.addListener(marker, "mouseout", function () {
+		marker.setImage('./imgs/markergreen.png');
+		var s = marker.div_.previousSibling.style.zIndex;
+		marker.div_.previousSibling.style.zIndex = parseInt(s) - 100000000;
+		marker.div_.style.zIndex = parseInt(s) - 100000000;
+	});
+}
+
+function len(s) {
+	var l = 0;
+	var a = s.split("");
+	for (var i = 0; i < a.length; i++) {
+		if ( a[i].charCodeAt(0) < 299 ) {
+			l++;
+		}
+		else {
+			l += 2;
+		}
+	}
+	return l;
+}
+</script>
+</div>
+</body>
+</html>
