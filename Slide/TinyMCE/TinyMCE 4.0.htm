@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+
+	<title>TinyMCE 4.0</title>
+
+	<meta name="description" content="The new TinyMCE 4.0 presentation.">
+	<meta name="author" content="Moxiecode Systems AB">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="http://www.tinymce.com/presentation/css/reveal.min.css">
+	<link rel="stylesheet" href="http://www.tinymce.com/presentation/css/theme/default.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="http://www.tinymce.com/presentation/lib/css/zenburn.css">
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<style type="text/css"></style>
+	<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css">
+	<script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script>
+	<link type="text/css" rel="stylesheet" href="chrome-extension://imamemhokkdleoelohnmkimbmpfglcil/css/capture.css">
+</head>
+
+<body screen_capture_injected="true" huaban_screen_capture_injected="true">
+
+<div class="reveal default center">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides" style="width: 960px; height: 700px; zoom: 1;">
+
+		<section style="top: -200px; display: none;" class="past">
+			<h1><img src="./TinyMCE/tlogo.png" height="110" style="margin: 0; padding: 0; border: 0; background: none; box-shadow: none;" data-pinit="registered">TinyMCE 4</h1>
+
+			<h3>The best, most downloaded, most used and most<br>popular editor just got better!</h3>
+
+			<p>
+				<small>Use space to navigate this presentation.</small>
+			</p>
+		</section>
+
+		<section style="top: -180px; display: none;" class="past">
+			<h2>Changes</h2>
+
+			<p>TinyMCE 4 has gone through quite a few code changes as well as an updated user interface.</p>
+
+			<p>We are going to highlight some of the changes we have made in the next slides.</p>
+		</section>
+
+		<section style="top: -249.5px; display: none;" class="past">
+			<h2>User interface API</h2>
+
+			<p>We have developed a new user interface API for TinyMCE.</p>
+
+			<p>This is a much richer API since you can create more complex user interfaces such as dialogs using its built in layout engines.</p>
+
+			<p>The interface is now much more lightweight and easier to understand for end users. Complex items are hidden away and must be actively configured to be displayed.</p>
+		</section>
+
+		<section style="top: 0px; display: none;" class="stack past" data-previous-indexv="0">
+			<section style="top: -20px; display: block;" class="">
+				<h2>Skin</h2>
+
+				<p>A new modern skin is the default skin used by TinyMCE 4, retina ready fonts are used as icons.</p>
+
+				<p>The skin uses Less and is modularized, each ui component has it's own Less file.</p>
+
+				<p>These changes should make it easier to make custom skins.</p>
+				<a href="http://www.tinymce.com/presentation/index.html#" class="image navigate-down">
+					<img src="./TinyMCE/arrow.png" width="120" style="border: 0; background: none; box-shadow: none;" data-pinit="registered">
+				</a>
+			</section>
+			<section style="top: -20px; display: block;" class="future">
+				<h2>Modern look and feel</h2>
+				<img src="./TinyMCE/tinymce01.gif" data-pinit="registered">
+			</section>
+			<section style="top: -20px; display: block;" class="future">
+				<h2>Quick access to formatting options</h2>
+				<img src="./TinyMCE/tinymce08.gif" data-pinit="registered">
+			</section>
+		</section>
+
+		<section style="top: -132px; display: none;" class="past">
+			<h2>Inline editing</h2>
+
+			<p>TinyMCE 3 had inline editing support through the API, but we now provide an interface for more easy usage.</p>
+		</section>
+
+		<section style="top: -238px; display: none;" class="past">
+			<h2>File structure</h2>
+
+			<p>We have changed the file structure to match more common js project structures.</p>
+
+			<p>The number of files has also been dramatically reduced.</p>
+			<h4>Basic structure</h4>
+<pre>js/tinymce/tinymce.min.js
+js/tinymce/plugins/table/plugin.min.js
+js/tinymce/themes/modern/theme.min.js
+js/tinymce/skins/lightgrey/skin.min.css
+</pre>
+		</section>
+
+		<section style="top: -180px; display: none;" class="past">
+			<h2>Updated build process</h2>
+
+			<p>The Java build process has been swapped out with a Node.js variant for a much smoother process.</p>
+
+			<p>Code has been modularized using AMD and a special AMD compiler is used in the build process.</p>
+		</section>
+
+		<section style="top: -132px; display: none;" class="past">
+			<h2>Unit tests coverage</h2>
+
+			<p>A new TestRunner and more unit tests have been added, we have also included coverage reports on tests.</p>
+		</section>
+
+		<section style="top: -180px; display: block;" class="past">
+			<h2>Higher code quality</h2>
+
+			<p>All code has been rewritten to match a very strict rule-set of JSHint, code is also easier to read due to this.</p>
+
+			<p>Many plugins have been reworked to match standards and strict code quality.</p>
+		</section>
+
+		<section style="top: 0px; display: block;" class="stack past" data-previous-indexv="0">
+			<section style="top: -233px; display: block;" class="">
+				<h2>Media plugin</h2>
+
+				<p>Media plugins have been modernized with a new user interface and it now uses the HTML5 video/audio elements by default.</p>
+				<a href="http://www.tinymce.com/presentation/index.html#" class="image navigate-down">
+					<img src="./TinyMCE/arrow.png" width="120" style="border: 0; background: none; box-shadow: none;" data-pinit="registered">
+				</a>
+			</section>
+			<section style="top: -273px; display: block;" class="future">
+				<h2>Easy and Smart GUI</h2>
+				<img src="./TinyMCE/tinymce05.gif" data-pinit="registered">
+			</section>
+		</section>
+
+		<section style="top: 0px; display: block;" class="stack past" data-previous-indexv="0">
+			<section style="top: -211px; display: block;" class="">
+				<h2>Table plugin</h2>
+
+				<p>Much easier to use table tools have been added, such as the use of a grid interface for creation of tables.</p>
+
+				<a href="http://www.tinymce.com/presentation/index.html#" class="image navigate-down">
+					<img src="./TinyMCE/arrow.png" width="120" style="border: 0; background: none; box-shadow: none;" data-pinit="registered">
+				</a>
+			</section>
+			<section style="top: -272.5px; display: block;" class="future">
+				<h2>Quick and easy!</h2>
+				<img src="./TinyMCE/tinymce04.gif" data-pinit="registered">
+			</section>
+		</section>
+
+
+		<section style="top: -132px; display: block;" class="present">
+			<h2>Paste plugin</h2>
+
+			<p>Rewritten from scratch, now easier to control the paste filtering rules. Also uses the new W3C clipboard API.</p>
+		</section>
+
+		<section style="top: -154px; display: block;" class="future">
+			<h2>CDN support</h2>
+
+			<p>TinyMCE 4 can now be hosted on Content Delivery Networks (CDN), the old user interface prevented TinyMCE from being loaded from another domain, but not any more.</p>
+		</section>
+
+		<section style="top: -206px; display: block;" class="future">
+			<h2>Feedback</h2>
+
+			<p>TinyMCE 4 is still in beta for a while, we are working on updating the documentation and fixing issues as they arise.</p>
+
+			<p>Please submit any bug reports in our bug tracker on tinymce.com if you find any.</p>
+			<h4>Thank you!</h4>
+		</section>
+
+
+		<section style="top: -164.5px; display: block;" class="future">
+			<img src="./TinyMCE/tlogo.png" height="110" style="margin: 0; padding: 0; border: 0; background: none; box-shadow: none;" data-pinit="registered">
+
+			<h2>Try TinyMCE 4 NOW!</h2>
+			<a href="http://www.tinymce.com/tryit/basic.php" class="roll"><span data-title="Demos">Demos</span></a>
+		</section>
+
+
+	</div>
+	<div class="progress" style="display: block;"><span style="width: 1129.1666666666667px;"></span></div>
+	<aside class="controls" style="display: block;">
+		<div class="navigate-left enabled"></div>
+		<div class="navigate-right enabled"></div>
+		<div class="navigate-up"></div>
+		<div class="navigate-down"></div>
+	</aside>
+	<div class="state-background"></div>
+	<div class="pause-overlay"></div>
+</div>
+
+<script src="./TinyMCE/head.min.js"></script>
+<script src="./TinyMCE/reveal.min.js"></script>
+
+<script>
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls : true,
+		progress : true,
+		history  : true,
+		center   : true,
+
+		theme        : Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition   : Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Optional libraries used to extend on reveal.js
+		dependencies : [
+			{ src : 'lib/js/classList.js', condition : function () {
+				return !document.body.classList;
+			} },
+			{ src : 'plugin/markdown/showdown.js', condition : function () {
+				return !!document.querySelector('[data-markdown]');
+			} },
+			{ src : 'plugin/highlight/highlight.js', async : true, callback : function () {
+				hljs.initHighlightingOnLoad();
+			} },
+			{ src : 'plugin/notes/notes.js', async : true, condition : function () {
+				return !!document.body.classList;
+			} }
+		]
+	});
+
+</script>
+<script type="text/javascript" src="./TinyMCE/highlight.js"></script>
+<script type="text/javascript" src="./TinyMCE/notes.js"></script>
+
+
+<script charset="utf-8"> (function (w, d, g, J) {
+	var e = J.stringify || J.encode;
+	d[g] = d[g] || {};
+	d[g]['showValidImages'] = d[g]['showValidImages'] || function () {
+		w.postMessage(e({'msg' : {'g' : g, 'm' : 's'}}), location.href);
+	}
+})(window, document, '__huaban', JSON); </script>
+</body>
+</html>
