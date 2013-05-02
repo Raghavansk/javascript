@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="../static/underscore.js"></script>
+</head>
+<body>
+<p>---------------EACH------------------</p>
+<script>
+	_.each([1,2,3], function(n){document.write(n)});
+	document.write('<br>');
+	_.each({one:1,two:2,three:3}, function(number, key){
+		document.write(key+'=>'+number+'<br/>');
+	})
+</script>
+<p>---------------MAP------------------</p>
+<script>
+	var list = "<% _.each(people, function(name) { %> <li><%= name %></li> <% }); %>";
+	document.write(_.template(list, {people : ['moe', 'curly', 'larry']}));
+</script>
+</body>
+</html>
